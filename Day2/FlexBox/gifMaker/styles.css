@@ -1,0 +1,43 @@
+.head h1{
+  font-family: "Pacifico", cursive;
+  color: red;
+  font-weight: bold;
+  font-size: 32px;
+  height: 100px;
+  margin-top 0px;
+  margin-bottom: 0px;
+}
+
+span {
+  font-family:fantasy;
+  font-size: 20px;
+  color: #000;
+
+}
+
+.descriptor {
+  height: 100px;
+  margin: auto;
+}
+.gifcontain {
+  width: 90vw;
+  height: max-content;
+  padding: 10px;
+  margin: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+
+  align-content: center;
+  /*centers horizontally*/
+  align-items: center;
+  /*centers vertically*/
+
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}

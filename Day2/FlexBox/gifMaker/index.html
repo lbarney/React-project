@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="gifSpot">
+
+<head>
+  <title></title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-controller="mainCtrl">
+  <div>
+    <div class="head">
+      <h1>gifSpot   <span>   The place to get awesome things!</span></h1>
+    </div>
+  </div>
+
+  <div class="inputSpot">
+    <input placeholder="Find all the things..." ng-model="searchKey">
+    <button ng-click="findGif(searchKey)">Search Things</button>
+  </div>
+  <div class="gifcontain">
+    <div class="gifPane" ng-repeat="gif in gifs">
+        <img ng-src="{{gif.images.downsized_medium.url}}" />
+    </div>
+  </div>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="mainCtrl.js"></script>
+  <script src="mainService.js"></script>
+</body>
+
+</html>
