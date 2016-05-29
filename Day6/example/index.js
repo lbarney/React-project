@@ -9,7 +9,7 @@ var dogCtrl = require('./controllers/dogCtrl'); //calling in controller document
 var app = express();
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded()); //This made my code work why?????
+app.use(bodyParser.urlencoded()); //This takes in any code that is url encoded and translates it to appropriate json format
 app.use(express.static(__dirname + '/public')); //automatically runs front end index.html when nodemon runs
 
 

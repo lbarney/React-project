@@ -8,7 +8,7 @@ var app = express(); //run express
 
 app.use(cors()); //run cors
 app.use(bodyParser.json()); //json-ifys req.body
-app.use(bodyParser.urlencoded()); //This made my code work why?????
+app.use(bodyParser.urlencoded()); //This takes in any code that is url encoded and translates it to appropriate json format
 app.use(express.static(__dirname + '/public')); //automatically opens public folder and runs front end index.html when nodemon runs
 
 //end points
