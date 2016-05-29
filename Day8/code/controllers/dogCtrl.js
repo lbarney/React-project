@@ -1,0 +1,38 @@
+var dogs = [{ //data reserve
+  name: "Fido",
+  breed: "Doberman"
+},
+{
+  name: "Toby",
+  breed: "Beagle"
+},
+{
+  name: "Max",
+  breed: "Bulldog"
+}];
+
+module.exports = { //end point descriptions
+  create: function(req, res, next) { //manually add dogs
+      dogs.push(req.body);
+      res.send(dogs);
+  },
+  read: function(req, res, next) { //display all dogs
+      res.send(dogs);
+  },
+  update: function(req, res, next){ //manually update dogs
+    for(var i = 0; i < dogs.length; i++) {
+      if (req.body.name === dogs[i].name) {
+        dogs[i] = req.body;
+      }
+    }
+    res.send(dogs);
+  },
+  delete: function(req, res, next){ //manually delete dogs
+    for(var i = 0; i < dogs.length; i++) {
+      if (req.body.name === dogs[i].name) {
+        dogs.splice(i,1);
+      }
+    }
+    res.send(dogs);
+  }
+};
