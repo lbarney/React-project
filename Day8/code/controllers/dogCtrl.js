@@ -19,17 +19,17 @@ module.exports = { //end point descriptions
   read: function(req, res, next) { //display all dogs
       res.send(dogs);
   },
-  update: function(req, res, next){ //manually update dogs
+  update: function(req, res, next){ //manually update dogs id id matches name
     for(var i = 0; i < dogs.length; i++) {
-      if (req.body.name === dogs[i].name) {
+      if (req.params.id === dogs[i].name) {
         dogs[i] = req.body;
       }
     }
     res.send(dogs);
   },
-  delete: function(req, res, next){ //manually delete dogs
+  delete: function(req, res, next){ //manually delete dogs if id matches name
     for(var i = 0; i < dogs.length; i++) {
-      if (req.body.name === dogs[i].name) {
+      if (req.params.id === dogs[i].name) {
         dogs.splice(i,1);
       }
     }

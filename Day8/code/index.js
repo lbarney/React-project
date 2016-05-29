@@ -20,8 +20,8 @@ app.post('/login', userCtrl.login);
 
 app.post('/dogs', dogCtrl.create);
 app.get('/dogs', dogCtrl.read);
-app.put('/dogs', dogCtrl.update);
-app.delete('/dogs', dogCtrl.delete);
+app.put('/dogs/:id', dogCtrl.update);
+app.delete('/dogs/:id', dogCtrl.delete);
 
 
 //localhost:8000
