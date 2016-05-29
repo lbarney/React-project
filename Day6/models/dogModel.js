@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 
-var dogSchema = mongoose.Schema({
-    name: {type: 'String', required: false},
-    breed: {type: 'String', required: false},
-    color: {type: 'String', required: false}
+var dogSchema = new mongoose.Schema({
+    name: {type: String, required: true},
+    breed: {type: String, required: true},
+    color: {type: String, required: true}
 });
 
 module.exports = mongoose.model('Dog', dogSchema);

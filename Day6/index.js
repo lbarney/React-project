@@ -1,30 +1,30 @@
-var express = require('express'); //makes coding really easy
+var express = require('express'); //makes coding node really easy
 var bodyParser = require('body-parser'); //decodes json into JS objects
 var cors = require('cors'); //headers
 var mongoose = require('mongoose');
 
 
-var dogCtrl = require('./controllers/dogCtrl');
-
-
+var dogCtrl = require('./controllers/dogCtrl'); //calling in controller document
 
 var app = express();
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded()); //This made my code work why?????
 app.use(express.static(__dirname + '/public')); //automatically runs front end index.html when nodemon runs
 
-mongoose.connect("mongodb://localhost:27017/dogs");
-mongoose.connection.once('open', function(){
-  console.log("Connected to mongoDB");
-});
 
-
+//end points
 app.post('/dogs', dogCtrl.create);
 app.get('/dogs', dogCtrl.read);
 app.put('/dogs/:id', dogCtrl.update);
 app.delete('/dogs/:id', dogCtrl.delete);
 
+mongoose.connect("mongodb://localhost:27017/dogs"); //connects to Mongo local 27017
+mongoose.connection.once('open', function(){
+  console.log("Connected to mongoDB");
+});
 
-app.listen(9000, function(){
-  console.log("listening to 9000");
+//localhost:8000
+app.listen(8000, function(){
+  console.log("listening to 8000");
 });
