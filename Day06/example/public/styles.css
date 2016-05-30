@@ -4,7 +4,8 @@ td {
   padding: 5px;
 }
 
-input {
-  margin: 10px 0;
-  width: max-content;
+input, table, .getit, .postit, .postitvals {
+  margin: auto;
+  text-align: center;
+  padding: 5px;
 }

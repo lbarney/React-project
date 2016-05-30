@@ -1,7 +1,8 @@
+var getDogs, postDog, putDog, deleteDog;
 $(document).ready(function(){
   var dogs;
 
-  function getDogs() {
+  getDogs = function() {
     $(".rowDogs").remove();
     $.ajax({
       method: "GET",
@@ -11,16 +12,27 @@ $(document).ready(function(){
       for (var i = 0; i < dogs.length; i++) {
         $(".tableDogs").append(`
           <tr class="rowDogs">
-          <td><input type="text" value="` + dogs[i].name + `"></td>
-          <td><input type="text" value="` + dogs[i].breed + `"></td>
-          <td><input type="text" value="` + dogs[i].color + `"></td>
-          <td><button id="putDog" type="button" value="` + dogs[i]._id + `">PUT</button></td>
-          <td><button id="deleteDog" type="button" value="` + dogs[i]._id + `">DELETE</button></td></tr>`);
+          <td>
+          <input id='` + i + `name' type="text" value="` + dogs[i].name + `">
+          </td>
+          <td>
+          <input id='` + i + `breed'  id='` + i + `name'  type="text" value="` + dogs[i].breed + `">
+          </td>
+          <td>
+          <input id='` + i + `color'  type="text" value="` + dogs[i].color + `">
+          </td>
+          <td>
+          <button id="putDog" onClick="putDog(value, {name:` + i + `, breed:` + i + ` , color:` + i + ` })" type="button" value="` + dogs[i]._id + `">PUT</button>
+          </td>
+          <td>
+          <button id="deleteDog" onClick="deleteDog(value);" type="button" value="` + dogs[i]._id + `">DELETE</button>
+          </td>
+          </tr>`);
       }
     });
-  }
+  };
 
-  function postDog(dog) {
+  postDog = function(dog) {
     $.ajax({
       method: 'POST',
       url: '/dogs',
@@ -28,19 +40,25 @@ $(document).ready(function(){
     }).then(function(response){
       getDogs();
     });
-  }
+  };
 
-  function putDog(dog, id){
+  putDog = function(id, dog){
+    var newdog = {
+      name: $("#" + dog.name + "name").val(),
+      breed: $("#" + dog.breed + "breed").val(),
+      color: $("#" + dog.color + "color").val()
+    };
     $.ajax({
       method: 'PUT',
       url: '/dogs/' + id,
-      data: dog
+      data: newdog
     }).then(function(response){
       getDogs();
     });
-  }
+  };
 
-  function deleteDog(id){
+  deleteDog = function(id){
+    console.log("crash2");
     $.ajax({
       method: 'DELETE',
       url: '/dogs/' + id
@@ -49,9 +67,12 @@ $(document).ready(function(){
     });
   };
 
+
+
   $("#getDogs").click(function(){
     getDogs();
   });
+
   $("#postDog").click(function(){
     // postDog();
     postDog({
@@ -66,9 +87,6 @@ $(document).ready(function(){
   //     breed:$("#dogBreed").val(),
   //     color:$("#dogColor").val()
   //   }, $("input:value").val());
-  // })
-  // $("#deleteDog").click(function(){
-  //   deleteDog($("input:value").val());
   // })
 
 
