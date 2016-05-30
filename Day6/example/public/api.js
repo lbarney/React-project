@@ -31,11 +31,22 @@ $(document).ready(function(){
   }
 
   function putDog(dog, id){
-    console.log("put");
+    $.ajax({
+      method: 'PUT',
+      url: '/dogs/' + id,
+      data: dog
+    }).then(function(response){
+      getDogs();
+    });
   }
 
   function deleteDog(id){
-    console.log("delete");
+    $.ajax({
+      method: 'DELETE',
+      url: '/dogs/' + id
+    }).then(function(response){
+      getDogs();
+    });
   };
 
   $("#getDogs").click(function(){
@@ -49,16 +60,16 @@ $(document).ready(function(){
       color:$("#dogColor").val()
     });
   });
-  $("#putDog").click(function(){
-    putDog({
-      name:$("#dogName").val(),
-      breed:$("#dogBreed").val(),
-      color:$("#dogColor").val()
-    }, $("input:value").val());
-  })
-  $("#deleteDog").click(function(){
-    deleteDog($("input:value").val());
-  })
+  // $("#putDog").click(function(){
+  //   putDog({
+  //     name:$("#dogName").val(),
+  //     breed:$("#dogBreed").val(),
+  //     color:$("#dogColor").val()
+  //   }, $("input:value").val());
+  // })
+  // $("#deleteDog").click(function(){
+  //   deleteDog($("input:value").val());
+  // })
 
 
 });

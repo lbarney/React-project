@@ -1,7 +1,7 @@
 var mongojs = require('mongojs'); //call in mongojs to connect to mongo database
 var ObjectId = require('mongodb').ObjectId; //why is this necessary...something to do with id for put and deletes
 
-var dbdog = mongojs('dogs', ['doginfo']); //setupp mongo structure
+var dbdog = mongojs('dogs', ['doginfo']); //setup mongo structure
 
 module.exports = { //end point descriptions
   create: function(req, res, next) {

@@ -1,15 +1,4 @@
-var dogs = [{ //data reserve
-  name: "Fido",
-  breed: "Doberman"
-},
-{
-  name: "Toby",
-  breed: "Beagle"
-},
-{
-  name: "Max",
-  breed: "Bulldog"
-}];
+var dogs = require('./dogs');
 
 module.exports = { //end point descriptions
   create: function(req, res, next) { //manually add dogs
