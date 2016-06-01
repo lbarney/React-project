@@ -1,5 +1,5 @@
-module.exports = { //user list
-  users: [{
+module.exports = [//user list
+  {
     username: "Steveee",
     password: "steve-O"
   },{
@@ -8,5 +8,5 @@ module.exports = { //user list
   },{
     username: "admin",
     password: "admin"
-  }]
-};
+  }
+];
