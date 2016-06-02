@@ -15,11 +15,13 @@ $(document).ready(function(){
           <td><input id='` + i + `name' type="text" value="` + dogs[i].name + `"></td>
           <td><input id='` + i + `breed'  id='` + i + `name'  type="text" value="` + dogs[i].breed + `"></td>
           <td><input id='` + i + `color'  type="text" value="` + dogs[i].color + `"></td>
+
           <td><button id="putDog" onClick="putDog(value, {
             name: $('#` + i + `name').val(),
             breed: $('#` + i + `breed').val(),
             color: $('#` + i + `color').val()
           });" type="button" value="` + dogs[i]._id + `">PUT</button></td>
+
           <td><button id="deleteDog" onClick="deleteDog(value);" type="button" value="` + dogs[i]._id + `">DELETE</button></td>
           </tr>`);
       }
