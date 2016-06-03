@@ -1,30 +1,39 @@
+
+//I ignored bower components in my original files. Whats this all about?
+
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
-// var passport = require('passport');//local auth
-// var session = require('express-session');//session
+var passport = require('passport');//local auth
+var session = require('express-session');//session
 
 var dogCtrl = require('./controllers/dogCtrl');
-// var userCtrl = require('/userCtrl.js');//user ctrl
-// var config = require('/config/config.js');//session secret
+var userCtrl = require('./controllers/userCtrl.js');//user ctrl
+var config = require('./config/config.js');//session secret
 
 var app = express();
 
-// require('./config/passport.js')(passport);//self invokes passport
+require('./config/passport.js')(passport);//self invokes passport
 
-// app.use(session(config));//set session secret
-// app.use(passport.initialize());//initialize passport
-// app.use(passport.session());//configure passport through session
+app.use(session(config));//set session secret
+app.use(passport.initialize());//initialize passport
+app.use(passport.session());//configure passport through session
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/public'));
 
-// app.post('/user', userCtrl.create);
+
+app.post('/auth', passport.authenticate('local-signup'), function(req, res){
+    res.send();
+});
+
+app.post('/user', userCtrl.create);
 // app.get('/user', userCtrl.getall);
-// app.get('/user/me', userCtrl.getme);
-// app.get('/user/logout', userCtrl.logout);
+app.get('/user/me', userCtrl.getme);
+app.get('/user/logout', userCtrl.logout);
 // app.get('/user/:id', userCtrl.read);
 // app.put('/user/:id', userCtrl.update);
 // app.delete('/user/:id', userCtrl.delete);

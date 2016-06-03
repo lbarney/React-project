@@ -9,6 +9,7 @@ $(document).ready(function(){
       url: "/dogs"
     }).then(function(response){
       dogs = response;
+      console.log(dogs);
       for (var i = 0; i < dogs.length; i++) {
         $(".tableDogs").append(`
           <tr class="rowDogs">
