@@ -1,4 +1,4 @@
-var getDogs, postDog, putDog, deleteDog, login, register;
+var getDogs, postDog, putDog, deleteDog, login, getMe, logout;
 $(document).ready(function(){
   var dogs;
 
@@ -50,7 +50,6 @@ $(document).ready(function(){
   };
 
   deleteDog = function(id){
-    console.log("crash2");
     $.ajax({
       method: 'DELETE',
       url: '/dogs/' + id
@@ -62,13 +61,56 @@ $(document).ready(function(){
   login = function(loginobj) {
     $.ajax({
       method: "POST",
-      url: "/login",
+      url: "/auth",
       data: loginobj
     }).then(function(response){
-      console.log(response);
-      $(".auth").hide();
-    });
+        console.log(response);
+        $(".loginemail").val("");
+        $(".loginpassword").val("");
+        $(".registeremail").val("");
+        $(".registerpassword").val("");
+        $(".registerfname").val("");
+        $(".registerlname").val("");
+        $(".auth").hide();
+        $(".logoutbutton").show();
+        $('.success').show();
+        setTimeout(function(){
+          $('.success').fadeOut(1000);
+        }, 700);
+        getMe();
+      }, function(err) {
+        console.log(err);
+        $('.error').show();
+        setTimeout(function(){
+          $('.error').fadeOut(1000);
+        }, 1200);
+      }
+    );
   };
+  logout = function() {
+    $.ajax({
+      method: "GET",
+      url: "/user/logout"
+    }).then(function(response){
+      console.log(response);
+      $(".intro").remove();
+      $(".auth").show();
+      $(".logoutbutton").hide();
+      $('.logout').show();
+      setTimeout(function(){
+        $('.logout').fadeOut(1000);
+      }, 700);
+    })
+  }
+  getMe = function () {
+      $.ajax({
+        method: "GET",
+        url: '/user/me'
+      }).then(function (response) {
+        $(".intro").remove();
+        $("body").prepend(`<h1 class="intro">Welcome ` + response.fname + `!</h1>`);
+      });
+    };
 
   $(".pushtoregister").click(function(){
     $(".login").hide();

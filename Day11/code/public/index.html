@@ -7,7 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <h1>CRUD All of the Dogs</h1>
+    <h1>Let's CRUD All of the Dogs</h1>
     <div class="getit">
       <input id="getDogs" onclick="getDogs();" type="button" value="GET">
     </div>
@@ -32,7 +32,7 @@
         <h1>Log In Here</h1>
         <input class="loginemail" type="text" placeholder="Email" value="">
         <input class="loginpassword" type="password" placeholder="Password" value=""><br>
-        <input class="loginbutton" type="button" value="Login">
+        <input class="loginbutton" onClick="login({email: $('.loginemail').val(), password: $('.loginpassword').val()});" type="button" value="Login">
         <h3 class="pushtoregister">Register Now!</h3>
       </div>
       <div class="register">
@@ -41,9 +41,21 @@
         <input class="registerlname" type="text" placeholder="Last Name" value=""><br>
         <input class="registeremail" type="text" placeholder="Email" value="">
         <input class="registerpassword" type="password" placeholder="Password" value=""><br>
-        <input class="registerbutton" type="button" value="Register & Login">
+        <input class="registerbutton" onClick="login({email: $('.registeremail').val(), password: $('.registerpassword').val(), fname: $('.registerfname').val(), lname:$('.registerlname').val()});" type="button" value="Register & Login">
         <h3 class="pushtologin">Log In Here</h3>
       </div>
+    </div>
+    <div class="success">
+      <h1>Successful Login!</h1>
+    </div>
+    <div class="error">
+      <h1>Invalid Email or Password</h1>
+    </div>
+    <div class="logout">
+      <h1>Successfully Logged Out!</h1>
+    </div>
+    <div class="logoutbutton">
+      <button type="button" onClick="logout();" name="button">Logout</button>
     </div>
 
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>

@@ -4,7 +4,7 @@ td {
   padding: 5px;
 }
 
-input, table, .getit, .postit, .postitvals, h1 {
+input, button, table, .getit, .postit, .postitvals, h1 {
   margin: auto;
   text-align: center;
   padding: 5px;
@@ -58,4 +58,27 @@ body {
 .pushtoregister, .pushtologin {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.success, .error, .logout {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 40vh;
+  font-size: 5vh;
+  color: purple;
+  text-shadow: 2px 2px #000;
+}
+
+.error {
+  color: red;
+}
+
+.logoutbutton {
+  display: none;
+  position: fixed;
+  top: 5px;
+  right: 5px;
 }
