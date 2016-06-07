@@ -6,7 +6,7 @@ var passport = require('passport');//local auth
 var session = require('express-session');//session
 
 var dogCtrl = require('./controllers/dogCtrl');
-var userCtrl = require('./controllers/userCtrl');//user ctrl so we can get curretn user and logout
+var userCtrl = require('./controllers/userCtrl');//user ctrl so we can get current user and logout
 var config = require('./config/config');//session secret
 
 var app = express();
