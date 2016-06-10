@@ -1,8 +1,11 @@
 .theTitle{
-	color: turquoise;
+	color: #73424F;
 	font: 'Didot';
 	list-style-type: none;
 }
 #something{
 	color: red;
+}
+.back{
+	background-color: #4CEEAD;
 }

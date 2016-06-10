@@ -4,11 +4,11 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'eval',
   entry: [
-    'webpack-hot-middleware/client',
-    './components/config/routes'
+    'webpack-hot-middleware/client', //live reload do not change
+    './components/config/routes'       //references where our components live
   ],
   output: {
-    path: path.join(__dirname, 'static'),
+    path: path.join(__dirname, 'static'), 
     filename: 'bundle.js',
     publicPath: '/static/'
   },
