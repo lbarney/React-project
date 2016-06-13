@@ -14,6 +14,8 @@ var animalControl = require('./controllers/animalControl.js');
 
 app.post('/animals', animalControl.create);
 app.get('/animals', animalControl.read);
+app.put('/animals/:id', animalControl.update);
+app.delete('/animals/:id', animalControl.delete);
 
 
 

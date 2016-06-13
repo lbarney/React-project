@@ -13,7 +13,7 @@ var hashHistory = ReactRouter.hashHistory;	//
 var Main = require('./../main'); 
 var About = require('./../about');
 var Home = require('./../home');
-var Animals = require('./../animals');
+var Animals = require('./../animalapp');
 
 ReactDOM.render(
 	<Router history={hashHistory}>

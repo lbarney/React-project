@@ -1,3 +1,4 @@
+
 //Animals
 //  AnimalData
 //	AnimalPostData
@@ -55,7 +56,8 @@ var AnimalPostData = React.createClass({
 			dataType: 'json',
 			data: animal,
 			success: function(data){
-				this.props.getAllAnimalsFromServer();  //getting this from the parent.
+				this.props.toggleActiveComponent('allAnimals');
+				
 			}.bind(this),
 			error: function(xhr, status, err){
 				console.error('/animals', status, err.toString())
