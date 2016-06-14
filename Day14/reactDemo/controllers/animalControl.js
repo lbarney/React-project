@@ -39,5 +39,18 @@ module.exports = {
 				res.send(result)
 			}
 		});
+	},
+	readById: function(req, res, next){
+		AnimalModel.findById(req.params.id, function(err, result){
+			if(err){
+				res.send(err)
+			}else{
+				res.send(result)
+			}
+		});
 	}
 };
+
+
+
+

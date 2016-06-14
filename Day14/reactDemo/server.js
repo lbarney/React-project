@@ -16,7 +16,7 @@ app.post('/animals', animalControl.create);
 app.get('/animals', animalControl.read);
 app.put('/animals/:id', animalControl.update);
 app.delete('/animals/:id', animalControl.delete);
-
+app.get('/animals/:id', animalControl.readById);
 
 
 if (process.env.NODE_ENV === 'production') {

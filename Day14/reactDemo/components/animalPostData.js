@@ -1,9 +1,11 @@
 
-//Animals
-//  AnimalData
-//	AnimalPostData
-//		AnimalPostForm
-
+//Animalapp
+	//AllAnimalsData
+		//AllAnimals
+			//AnimalCard
+	//Toggle
+	//AnimalPostData
+		//AnimalPostForm
 
 
 

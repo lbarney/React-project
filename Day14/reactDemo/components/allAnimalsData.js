@@ -1,7 +1,12 @@
-//Animals
-//  AllAnimals
-//	AnimalPostData
-//		AnimalPostForm
+//Animalapp
+	//AllAnimalsData
+		//AllAnimals
+			//AnimalCard
+	//Toggle
+	//AnimalPostData
+		//AnimalPostForm
+	//EditAnimalData
+		//EditAnimalForm
 
 
 var React = require('react');
@@ -47,7 +52,7 @@ var AllAnimalsData = React.createClass({
 
 		
 
-		return this.state.animals ? <AllAnimals deleteAnimalFromServer = {this.deleteAnimalFromServer} animals = {this.state.animals} /> : null;
+		return this.state.animals ? <AllAnimals getId = {this.props.getId} deleteAnimalFromServer = {this.deleteAnimalFromServer} animals = {this.state.animals} /> : null;
 		
 	}
 });

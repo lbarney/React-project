@@ -1,7 +1,19 @@
+//Animalapp
+	//AllAnimalsData
+		//AllAnimals
+			//AnimalCard
+	//Toggle
+	//AnimalPostData
+		//AnimalPostForm
+	//EditAnimalData
+		//EditAnimalForm
+
+
 var React = require('react');
 var AllAnimalsData = require('./allAnimalsData.js')
 var Toggle = require('./toggle.js');
 var AnimalPostData = require('./animalPostData');
+var EditAnimalData = require('./editAnimalData.js');
 
 var AnimalApp = React.createClass({
 	getInitialState: function(){
@@ -25,6 +37,8 @@ var AnimalApp = React.createClass({
 			return <AllAnimalsData getId = { this.getId }/>
 		}else if(this.state.activeComponent === 'postAnimalForm'){
 			return <AnimalPostData toggleActiveComponent={this.toggleActiveComponent}/>
+		}else if(this.state.activeComponent === 'editAnimal'){
+			return <EditAnimalData id = {this.state.activeAnimalId} toggleActiveComponent = {this.toggleActiveComponent}/>
 		}else{
 			throw new Error('No Active Component', this.state.activeComponent)
 		}
@@ -50,3 +64,10 @@ var AnimalApp = React.createClass({
 });
 
 module.exports = AnimalApp;
+
+
+
+
+
+
+
